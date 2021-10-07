@@ -5,9 +5,6 @@ public class PlaylistEntity {
     private String naam;
     private int eigenaarId;
 
-    public PlaylistEntity() {
-    }
-
     public PlaylistEntity(int id, String naam, int eigenaarId) {
         this.id = id;
         this.naam = naam;
