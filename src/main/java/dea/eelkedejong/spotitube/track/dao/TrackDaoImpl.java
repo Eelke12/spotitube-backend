@@ -64,7 +64,7 @@ public class TrackDaoImpl implements TrackDao {
     @Override
     public void updateOfflineAvailable(int trackId, boolean isOfflineAvailable) {
         try {
-            PreparedStatement ps = conn.prepareStatement("UPDATE track SET offlineavailable = ? WHERE id = ?");
+            PreparedStatement ps = conn.prepareStatement("UPDATE track SET offlineavailable = ?::bit WHERE id = ?");
 
             int offlineAvailable = isOfflineAvailable ? 1 : 0;
 

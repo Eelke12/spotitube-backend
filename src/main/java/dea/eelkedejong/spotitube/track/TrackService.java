@@ -38,7 +38,7 @@ public class TrackService {
     public Tracks addTrack(int id, String token, Track track) {
         eigenaarService.checkToken(token);
 
-        trackDao.updateOfflineAvailable(id, track.isOfflineAvailable());
+        trackDao.updateOfflineAvailable(track.getId(), track.isOfflineAvailable());
         trackDao.addTrackToPlaylist(track.getId(), id);
 
         return getTracksForPlaylist(id, token);
