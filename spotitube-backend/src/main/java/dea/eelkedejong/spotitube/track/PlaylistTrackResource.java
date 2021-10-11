@@ -11,7 +11,6 @@ import javax.ws.rs.core.Response;
 @Path("")
 public class PlaylistTrackResource {
 
-    @Inject
     private TrackService trackService;
 
     @GET
@@ -54,5 +53,10 @@ public class PlaylistTrackResource {
                 .status(200)
                 .entity(tracks)
                 .build();
+    }
+
+    @Inject
+    public void setTrackService(TrackService trackService) {
+        this.trackService = trackService;
     }
 }

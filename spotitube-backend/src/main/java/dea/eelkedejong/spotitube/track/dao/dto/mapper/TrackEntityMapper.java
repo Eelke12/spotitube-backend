@@ -1,7 +1,7 @@
 package dea.eelkedejong.spotitube.track.dao.dto.mapper;
 
-import dea.eelkedejong.spotitube.track.dto.Track;
 import dea.eelkedejong.spotitube.track.dao.dto.TrackEntity;
+import dea.eelkedejong.spotitube.track.dto.Track;
 
 import java.util.ArrayList;
 import java.util.List;

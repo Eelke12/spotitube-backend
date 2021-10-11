@@ -1,4 +1,4 @@
 package dea.eelkedejong.spotitube.track;
 
-public class TrackService {
+public class TestTrackService {
 }

@@ -11,7 +11,7 @@ public class LoginFailedMapper implements ExceptionMapper<LoginFailedException> 
     @Override
     public Response toResponse(LoginFailedException e) {
         return Response
-                .status(400)
+                .status(401)
                 .entity(e.getMessage())
                 .build();
     }

@@ -11,7 +11,7 @@ public class NoValidTokenMapper implements ExceptionMapper<NoValidTokenException
     @Override
     public Response toResponse(NoValidTokenException e) {
         return Response
-                .status(400)
+                .status(403)
                 .entity(e.getMessage())
                 .build();
     }

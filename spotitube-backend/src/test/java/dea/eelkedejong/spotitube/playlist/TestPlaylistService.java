@@ -9,11 +9,11 @@ import dea.eelkedejong.spotitube.playlist.dao.dto.mapper.PlaylistEntityMapper;
 import dea.eelkedejong.spotitube.playlist.dto.Playlist;
 import dea.eelkedejong.spotitube.playlist.exceptions.NoPlaylistWithThatIdException;
 import dea.eelkedejong.spotitube.playlist.exceptions.NotOwnerOfPlaylistException;
+import dea.eelkedejong.spotitube.track.TestTrackService;
 import dea.eelkedejong.spotitube.track.TrackService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;

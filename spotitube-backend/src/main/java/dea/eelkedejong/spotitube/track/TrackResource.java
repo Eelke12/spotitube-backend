@@ -10,7 +10,6 @@ import javax.ws.rs.core.Response;
 @Path("/tracks")
 public class TrackResource {
 
-    @Inject
     private TrackService trackService;
 
     @GET
@@ -24,5 +23,10 @@ public class TrackResource {
                 .status(200)
                 .entity(tracks)
                 .build();
+    }
+
+    @Inject
+    public void setTrackService(TrackService trackService) {
+        this.trackService = trackService;
     }
 }

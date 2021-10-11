@@ -11,7 +11,7 @@ public class NoPlaylistWithThatIdMapper implements ExceptionMapper<NoPlaylistWit
     @Override
     public Response toResponse(NoPlaylistWithThatIdException e) {
         return Response
-                .status(400)
+                .status(404)
                 .entity(e.getMessage())
                 .build();
     }

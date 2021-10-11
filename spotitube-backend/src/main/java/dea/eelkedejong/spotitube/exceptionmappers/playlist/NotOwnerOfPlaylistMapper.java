@@ -11,7 +11,7 @@ public class NotOwnerOfPlaylistMapper implements ExceptionMapper<NotOwnerOfPlayl
     @Override
     public Response toResponse(NotOwnerOfPlaylistException e) {
         return Response
-                .status(400)
+                .status(403)
                 .entity(e.getMessage())
                 .build();
     }

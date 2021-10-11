@@ -36,7 +36,7 @@ public class PlaylistResource {
         Playlists playlists = playlistService.addPlaylist(playlist, token);
 
         return Response
-                .status(200)
+                .status(201)
                 .entity(playlists)
                 .build();
     }
