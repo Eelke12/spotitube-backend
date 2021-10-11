@@ -1,5 +1,6 @@
 package dea.eelkedejong.spotitube.track;
 
+import dea.eelkedejong.spotitube.track.dto.Track;
 import dea.eelkedejong.spotitube.track.dto.Tracks;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,5 +37,14 @@ public class TestPlaylistTrackResource {
         sut.deleteTrackOfPlaylist(1, 1, "1234");
 
         Mockito.verify(mockedTrackService).deleteTrack(1, 1, "1234");
+    }
+
+    @Test
+    public void testAddTrackToPlaylist() {
+        Track track = new Track();
+
+        sut.addTrackToPlaylist(1, "1234", track);
+
+        Mockito.verify(mockedTrackService).addTrack(1, "1234", track);
     }
 }

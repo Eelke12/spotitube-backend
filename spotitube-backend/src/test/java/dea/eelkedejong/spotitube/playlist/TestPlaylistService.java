@@ -9,7 +9,6 @@ import dea.eelkedejong.spotitube.playlist.dao.dto.mapper.PlaylistEntityMapper;
 import dea.eelkedejong.spotitube.playlist.dto.Playlist;
 import dea.eelkedejong.spotitube.playlist.exceptions.NoPlaylistWithThatIdException;
 import dea.eelkedejong.spotitube.playlist.exceptions.NotOwnerOfPlaylistException;
-import dea.eelkedejong.spotitube.track.TestTrackService;
 import dea.eelkedejong.spotitube.track.TrackService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -73,17 +72,19 @@ public class TestPlaylistService {
 
         Mockito.verify(mockedPlaylistDao).addPlaylist(Mockito.any(PlaylistEntity.class));
     }
-//
-//    @Test
-//    public void testEditPlaylistNotOwner() {
-//        var itemToEdit = new Playlist(1, "test", true, new ArrayList<>());
-//
-//        Eigenaar eigenaar = new Eigenaar(1, "test", "test123", "1234");
-//        Mockito.when(mockedEigenaarService.checkToken("1234")).thenReturn(eigenaar);
-//
-//        Mockito.when(mockedPlaylistDao.getPlaylistById(1)).thenReturn(new PlaylistEntity(1, "test", 2));
-//        Assertions.assertThrows(NotOwnerOfPlaylistException.class, () -> sut.editPlaylist(1, itemToEdit, "1234"));
-//    }
+
+    @Test
+    public void testEditPlaylist() {
+        var itemToEdit = new Playlist(1, "test", true, new ArrayList<>());
+
+        Eigenaar eigenaar = new Eigenaar(1, "test", "test123", "1234");
+        Mockito.when(mockedEigenaarService.checkToken("1234")).thenReturn(eigenaar);
+        Mockito.when(mockedPlaylistDao.getPlaylistById(1)).thenReturn(new PlaylistEntity(1, "test", 1));
+
+        sut.editPlaylist(1, itemToEdit, "1234");
+
+        Mockito.verify(mockedPlaylistDao).editPlaylist(1, "test");
+    }
 
     @Test
     public void testEditPlaylistNotOwner() {
@@ -91,8 +92,8 @@ public class TestPlaylistService {
 
         Eigenaar eigenaar = new Eigenaar(1, "test", "test123", "1234");
         Mockito.when(mockedEigenaarService.checkToken("1234")).thenReturn(eigenaar);
-
         Mockito.when(mockedPlaylistDao.getPlaylistById(1)).thenReturn(new PlaylistEntity(1, "test", 2));
+
         Assertions.assertThrows(NotOwnerOfPlaylistException.class, () -> sut.editPlaylist(1, itemToEdit, "1234"));
     }
 
@@ -118,23 +119,6 @@ public class TestPlaylistService {
 
         sut.deletePlaylist(1, "1234");
 
-//        Mockito.verify(mockedPlaylistDao).deletePlaylistById(1);
+        Mockito.verify(mockedPlaylistDao).deletePlaylistById(1);
     }
-//
-//    @Test
-//    public void testDeletePlaylistNotOwner() {
-//        Eigenaar eigenaar = new Eigenaar(1, "test", "test123", "1234");
-//        Mockito.when(mockedEigenaarDao.getEigenaarByUsernameOrToken("1234")).thenReturn(eigenaar);
-//
-//        Mockito.when(mockedPlaylistDao.getPlaylistById(1)).thenReturn(new PlaylistEntity(1, "test", 2));
-//        Assertions.assertThrows(NotOwnerOfPlaylistException.class, () -> sut.deletePlaylist(1, "1234"));
-//    }
-//
-//    @Test
-//    public void testDeletePlaylistNoId() {
-//        Eigenaar eigenaar = new Eigenaar(1, "test", "test123", "1234");
-//        Mockito.when(mockedEigenaarDao.getEigenaarByUsernameOrToken("1234")).thenReturn(eigenaar);
-//
-//        Assertions.assertThrows(NoPlaylistWithThatIdException.class, () -> sut.deletePlaylist(1, "1234"));
-//    }
 }

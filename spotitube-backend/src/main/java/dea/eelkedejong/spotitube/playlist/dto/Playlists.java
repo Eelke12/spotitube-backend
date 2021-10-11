@@ -17,8 +17,4 @@ public class Playlists {
     public List<Playlist> getPlaylists() {
         return playlists;
     }
-
-    public int getLength() {
-        return length;
-    }
 }

@@ -1,7 +1,6 @@
 package dea.eelkedejong.spotitube.playlist.dto;
 
 import dea.eelkedejong.spotitube.track.dto.Track;
-import dea.eelkedejong.spotitube.track.dto.Tracks;
 
 import javax.json.bind.annotation.JsonbProperty;
 import java.util.List;
@@ -32,13 +31,5 @@ public class Playlist {
 
     public String getNaam() {
         return naam;
-    }
-
-    public boolean isOwner() {
-        return owner;
-    }
-
-    public List<Track> getTracks() {
-        return tracks;
     }
 }
