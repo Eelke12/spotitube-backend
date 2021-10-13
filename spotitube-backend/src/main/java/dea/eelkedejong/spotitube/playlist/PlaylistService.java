@@ -38,6 +38,7 @@ public class PlaylistService {
 
         trackService.deleteTracksFromPlaylist(id);
         playlistDao.deletePlaylistById(id);
+
         return getPlaylists(token);
     }
 
@@ -51,6 +52,7 @@ public class PlaylistService {
         );
 
         playlistDao.addPlaylist(playlistEntity);
+
         return getPlaylists(token);
     }
 

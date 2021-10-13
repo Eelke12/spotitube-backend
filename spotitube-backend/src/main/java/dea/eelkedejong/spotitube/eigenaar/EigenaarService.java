@@ -26,6 +26,7 @@ public class EigenaarService {
         }
 
         eigenaarDao.updateToken(token, eigenaar.getId());
+
         return new LoginResponse(eigenaar.getGebruikersnaam(), token);
     }
 
